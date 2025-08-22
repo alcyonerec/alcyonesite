@@ -10,6 +10,7 @@
     <header>
         <h1>Alcyone</h1>
         <p>Gravadora de Música</p>
+<script src="https://unpkg.com/@supabase/supabase-js"></script>
     </header>
     <main>
         <h2>Upload de Arquivos para Mixagem</h2>
@@ -23,5 +24,18 @@
     <footer>
         <p>&copy; 2025 Alcyone</p>
     </footer>
+<script>
+  const SUPABASE_URL = "https://fpugwycjuakjglzopnee.supabase.co"; 
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwdWd3eWNqdWFramdsem9wbmVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU4MjQ3NTAsImV4cCI6MjA3MTQwMDc1MH0.C0Ah9LTsEv-PDhZ4CZq6fGIkEi5KzCIdWbnlGBNA67w"; 
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // Exemplo de teste: listar músicas
+  async function carregarMusicas() {
+    const { data, error } = await supabase.from("tracks").select("*");
+    console.log(data, error);
+  }
+
+  carregarMusicas();
+</script>
 </body>
 </html>
